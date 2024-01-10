@@ -1,0 +1,50 @@
+---
+import CompatibilityList from "~/components/compatibility-list.astro";
+import ContentSection from "~/components/content-section.astro";
+import type { CompatibilityItem } from "~/types";
+
+const patrocinadores: Array<CompatibilityItem> = [
+  {
+    title: "Microsoft",
+    icon: "frameworks/react",
+    url: "https://www.microsoft.com/es-ec/",
+  },
+  {
+    title: "Universidad de Cuenca",
+    icon: "frameworks/preact",
+    url: "https://www.ucuenca.edu.ec/",
+  },
+  {
+    title: "CEDIA",
+    icon: "frameworks/svelte",
+    url: "https://cedia.edu.ec/",
+  },
+  {
+    title: "Axon Smart Tech",
+    icon: "frameworks/vue",
+    url: "https://www.axonecuador.com/",
+  },
+  {
+    title: "DOS Visión sin Límites",
+    icon: "frameworks/solid",
+    url: "https://www.dos.com.ec/",
+  },
+  {
+    title: "Netlife",
+    icon: "frameworks/lit",
+    url: "https://www.netlife.ec/",
+  },
+];
+
+---
+
+<ContentSection title="Auspiciantes" id="patrocinadores">
+  <Fragment slot="lead">   
+    ¡Gracias a <span class="text-primary">ellos</span> toda esta <span class="text-primary">experiencia</span>  es posible! 
+  </Fragment>
+  <CompatibilityList
+    items={patrocinadores}
+    title="Patrocinadores"
+    url="https://docs.astro.build/core-concepts/framework-components/"
+  />  
+</ContentSection>

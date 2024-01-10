@@ -1,0 +1,182 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+---
+
+
+<ContentSection title="Programación del evento" id="agenda">  
+  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">    
+    <button id="btn-day1"
+      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4 button-selected" 
+    >
+      <Icon name="mdi:teacher" class="size-8" />
+      <span>Día 1 (Abril. 18)</span>
+    </button>
+    <button id="btn-day2"
+      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
+    >
+      <Icon name="mdi:speak" class="size-8" />
+      <span>Día 2 (Abril. 19)</span>
+    </button>
+  </div>  
+  <div id="day1-table" style="display: block;">
+    <table>    
+      <tr>
+        <th>Hora</th>
+        <th>Sesiones</th>
+      </tr>      
+      <tr>
+        <td>09:00</td>
+        <td>Texto para la actividad 1</td>
+      </tr>
+      <tr>
+        <td>10:00</td>
+        <td>Texto para la actividad 1</td>
+      </tr>
+      <tr>
+        <td>11:00</td>
+        <td>Texto para la actividad 1</td>
+      </tr>
+      <tr>
+        <td>14:00</td>
+        <td>Texto para la actividad 1</td>
+      </tr>
+      <tr>
+        <td>15:00</td>
+        <td>Texto para la actividad 1</td>
+      </tr>
+      <tr>
+        <td>16:00</td>
+        <td>Texto para la actividad 1</td>
+      </tr>      
+    </table>
+  </div>
+  <div id="day2-table" style="display: none;">
+    <table>    
+      <tr>
+        <th>Hora</th>
+        <th>Sesiones</th>
+      </tr>      
+      <tr>
+        <td>09:00</td>
+        <td>Texto para la actividad 2</td>
+      </tr>
+      <tr>
+        <td>10:00</td>
+        <td>Texto para la actividad 2</td>
+      </tr>
+      <tr>
+        <td>11:00</td>
+        <td>Texto para la actividad 2</td>
+      </tr>
+      <tr>
+        <td>14:00</td>
+        <td>Texto para la actividad 2</td>
+      </tr>
+      <tr>
+        <td>15:00</td>
+        <td>Texto para la actividad 2</td>
+      </tr>
+      <tr>
+        <td>16:00</td>
+        <td>Texto para la actividad 2</td>
+      </tr>      
+    </table>
+  </div>
+</ContentSection>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('btn-day1').addEventListener('click', function() {
+      document.getElementById('day1-table').style.display = 'block';
+      document.getElementById('day2-table').style.display = 'none';
+    });
+
+    document.getElementById('btn-day2').addEventListener('click', function() {
+      document.getElementById('day1-table').style.display = 'none';
+      document.getElementById('day2-table').style.display = 'block';
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+  const btnDay1 = document.getElementById('btn-day1');
+  const btnDay2 = document.getElementById('btn-day2');
+  const day1Table = document.getElementById('day1-table');
+  const day2Table = document.getElementById('day2-table');
+
+  btnDay1.addEventListener('click', function() {
+    day1Table.style.display = 'block';
+    day2Table.style.display = 'none';
+    btnDay1.classList.add('button-selected');
+    btnDay2.classList.remove('button-selected');
+  });
+
+  btnDay2.addEventListener('click', function() {
+    day1Table.style.display = 'none';
+    day2Table.style.display = 'block';
+    btnDay2.classList.add('button-selected');
+    btnDay1.classList.remove('button-selected');
+  });
+});
+
+</script>
+
+<style>
+
+.button-selected {
+  background-color: #673AB7; /* Un color violeta más claro */
+  color: white;
+}
+
+/* Estilo General de la Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Sombra sutil para dar profundidad */
+  overflow: hidden; /* Para bordes redondeados en las esquinas */
+  border-radius: 10px; /* Esquinas redondeadas */
+}
+
+/* Estilos para las Celdas de la Tabla */
+th, td {
+  padding: 12px 15px; /* Espaciado interno generoso */
+  text-align: left; /* Alineación del texto */
+  border-bottom: 1px solid #ffffff; /* Línea divisoria sutil */
+}
+
+/* Estilos para los Encabezados de la Tabla */
+th {
+  background-color: #4A148C; /* Color de fondo para los encabezados */
+  color: white; /* Texto en color blanco para alto contraste */
+  font-size: 16px; /* Tamaño de letra más grande para los encabezados */
+}
+
+/* Estilo para las Filas al Pasar el Mouse */
+tr:hover {
+  background-color: #f5f5f5; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilo para la Primera Columna (Hora) */
+td:first-child {
+  color: #673AB7; /* Color distintivo para las horas */
+  font-weight: bold; /* Texto en negrita para destacar */
+}
+
+/* Estilo para las Filas Impares */
+tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Color de fondo para las filas impares */
+}
+
+/* Estilo para las Filas Pares */
+tr:nth-child(even) {
+  background-color: #ffffff; /* Color de fondo para las filas pares */
+}
+td:last-child{
+  color: #050505;
+}
+
+</style>
+
+
