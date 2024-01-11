@@ -1,5 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import newIcon from "~/assets/globalAzure2024.png";
+import inicio from "~/assets/inicio.png";
 import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
 
@@ -18,8 +21,12 @@ const navItems: Array<NavItem> = [
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
     <h1 class="sr-only">Global Azure Ecuador 2024</h1>
-    <Icon name="logomark" class="size-10" />
-    <Icon name="wordmark" class="hidden h-4 sm:block" />
+    <Image
+      class="size-20 hidden h-14 sm:block"
+      src={newIcon}
+      alt="Your new icon description"
+    />
+    Inicio
   </a>
   <div>
     <div class="flex items-center gap-6">

@@ -1,19 +1,19 @@
 [data-theme="light"] {
-  --color-primary: theme("colors.pink.500");
-  --color-secondary: theme("colors.indigo.500");
-  --color-text: theme("colors.gray.900");
-  --color-text-offset: theme("colors.gray.600");
-  --color-background: theme("colors.gray.50");
-  --color-background-offset: theme("colors.gray.100");
-  --color-border: theme("colors.gray.900" / 10%);
+  --color-primary: #2898ee; /* Azul claro y vibrante para el tema claro */
+  --color-secondary: #107acc; /* Un tono de azul intermedio para detalles secundarios */
+  --color-text: theme("colors.gray.900"); /* Manteniendo el texto oscuro para contraste */
+  --color-text-offset: theme("colors.gray.600"); /* Texto offset ligeramente más claro */
+  --color-background: theme("colors.gray.200"); /* Fondo claro para el tema claro */
+  --color-background-offset: theme("colors.gray.300"); /* Fondo offset un poco más oscuro */
+  --color-border: theme("colors.gray.900" / 10%); /* Borde sutil para elementos */
 }
 
 [data-theme="dark"] {
-  --color-primary: theme("colors.pink.400");
-  --color-secondary: theme("colors.indigo.400");
-  --color-text: theme("colors.gray.50");
-  --color-text-offset: theme("colors.gray.400");
-  --color-background: theme("colors.gray.900");
-  --color-background-offset: theme("colors.gray.800");
-  --color-border: theme("colors.gray.50" / 10%);
+  --color-primary: #15297c; /* Azul más oscuro para el tema oscuro */
+  --color-secondary: #107acc; /* Un tono de azul intermedio también para el tema oscuro */
+  --color-text: theme("colors.gray.200"); /* Texto claro para el tema oscuro */
+  --color-text-offset: theme("colors.gray.400"); /* Texto offset para variar el contraste */
+  --color-background: theme("colors.gray.900"); /* Fondo oscuro para el tema oscuro */
+  --color-background-offset: theme("colors.gray.800"); /* Fondo offset aún más oscuro */
+  --color-border: theme("colors.gray.50" / 10%); /* Borde claro para elementos en el tema oscuro */
 }

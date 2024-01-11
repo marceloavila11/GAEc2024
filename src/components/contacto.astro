@@ -1,0 +1,187 @@
+---
+// Contacto.astro
+import "@fontsource-variable/inter";
+import ContentSection from "~/components/content-section.astro";
+---
+
+<ContentSection title="Nuestra ubicación" id="contacto">
+  <div class="contact-section" id="sec">
+    <div class="contact-form">
+      <h2>Contáctanos</h2>
+      <p>¡Comunícate con nosotros en cualquier momento!</p>
+      <form
+        action="mailto:tuemail@example.com"
+        method="POST"
+        class="form-style"
+      >
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Nombre"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Correo Electrónico"
+          />
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" required placeholder="Mensaje"
+          ></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Enviar Mensaje</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <div class="location-info">
+        <h3>
+          ¡Cuenca, la ciudad más hermosa de los Andes Ecuatorianos nos espera!
+        </h3>
+        <p>
+          <br />Cuenca ha sido seleccionada para celebrar el Global Azure 2024
+          en Ecuador este año. Viviremos esta experiencia de clase mundial
+          juntos en el Campus Tecnológico de Balzay de la Universidad de Cuenca,
+          con sus modernos laboratorios y auditorios.
+        </p>
+      </div>
+      <div class="contact-map">
+        <!-- Aquí iría el mapa embebido, como un iframe de Google Maps o similar -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1992.369882566194!2d-79.03828651163593!3d-2.8911940204737006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd22b0d598af21%3A0x60dda6be6ef264b6!2sCampus%20Balzay%20Universidad%20de%20Cuenca%2C%20Cuenca!5e0!3m2!1sen!2sec!4v1704919630632!5m2!1sen!2sec"
+          width="550"
+          height=250"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</ContentSection>
+
+<style>
+  .contact-section {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background: #f0f4f8;
+    font-family: "Inter", sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+
+  }
+
+  .contact-form,
+  .contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-form {
+    flex: 1;
+  }
+
+  .contact-info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .contact-map iframe {
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+
+  h2,
+  h3 {
+    color: #0056b3; /* Un azul más vibrante */
+    font-weight: 700; /* Más peso para mayor impacto */
+    font-size: 2rem; /* Tamaño más grande para h2 */
+    margin-bottom: 0.5rem; /* Espacio inferior ajustado */
+  }
+
+  h3 {
+    font-size: 1.5rem; /* Tamaño más grande para h3 */
+  }
+
+  p {
+    color: #333; /* Texto más oscuro para mejor legibilidad */
+    line-height: 1.7; /* Espaciado de línea para mejorar la lectura */
+    font-size: 1rem; /* Tamaño de fuente estándar para el párrafo */
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem; /* Espacio inferior aumentado */
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 15px; /* Padding aumentado para mayor espacio */
+    border: 2px solid #ccd6f6; /* Un azul claro para el borde */
+    border-radius: 8px; /* Bordes redondeados más pronunciados */
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #a0aec0; /* Color más claro para el placeholder */
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #3182ce; /* Un azul más intenso al enfocar */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.3); /* Sombra de enfoque para mejor visibilidad */
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 15px; /* Padding aumentado para un botón más grande */
+    color: #fff;
+    background-color: #3182ce; /* Color de fondo más intenso para el botón */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados para el botón */
+    font-size: 1rem; /* Tamaño de la fuente para el botón */
+    font-weight: 600; /* Peso de la fuente para el botón */
+    cursor: pointer;
+    transition:
+      background-color 0.3s,
+      transform 0.3s;
+  }
+
+  .submit-btn:hover {
+    background-color: #1a202c; /* Color oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Elevación ligera al pasar el mouse */
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      flex-direction: column;
+    }
+
+    .contact-form,
+    .contact-info-map {
+      flex-basis: 100%;
+    }
+
+    .contact-map iframe {
+      height: 200px;
+    }
+  }
+  #sec{
+    margin-top: -30px; /* Ajusta este valor según sea necesario */
+  }
+</style>

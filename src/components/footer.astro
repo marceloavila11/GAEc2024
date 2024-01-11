@@ -1,49 +1,148 @@
----
-import { Icon } from "astro-icon/components";
-import HeroImage from "~/components/hero-image.astro";
-import type { FooterLink } from "~/types";
-
-const links: Array<FooterLink> = [
-  {
-    url: "https://astro.build/",
-    description: "Astro's official website",
-    icon: "mdi:home",
-  },
-  {
-    url: "https://github.com/mhyfritz/astro-landing-page",
-    description: "View source on GitHub",
-    icon: "fa-brands:github-alt",
-  },
-  {
-    url: "https://astro.build/chat",
-    description: "Astro on Discord",
-    icon: "fa-brands:discord",
-  },
-  {
-    url: "https://twitter.com/astrodotbuild",
-    description: "Astro on Twitter",
-    icon: "fa-brands:twitter",
-  },
-];
----
-
-<footer class="relative flex h-64 items-center justify-center">
-  <div class="absolute inset-0 overflow-hidden opacity-40">
-    <HeroImage />
+<footer class="footer-section">
+  <div class="footer-content">
+    <div class="footer-block">
+      <img src="/path-to-your-logo.png" alt="Logo" class="footer-logo">
+      <p>Global Azure 2023 es un evento global para aprender sobre Azure, y sobre las últimas tendencias tecnológicas.</p>
+      <p>En Ecuador, el evento está organizado por Microsoft UCuenca, junto al Virtual DEV Show. ¡La experiencia será realmente increíble!</p>
+    </div>
+    <div class="footer-block">
+      <h3>MICROSOFT UCENCA</h3>
+      <ul>
+        <li><a href="#">Sitio web</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-block">
+      <h3>VIRTUAL DEV SHOW</h3>
+      <ul>
+        <li><a href="#">Sitio web</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Meetup</a></li>
+      </ul>
+    </div>
+    <div class="footer-block">
+      <h3>PORTAL WEB</h3>
+      <p>Construido por:</p>
+      <p>Virtual DEV Show (ATG).</p>
+      <p>Microsoft Most Valuable Professionals.</p>
+      <p>Email: info@virtualdevshow.com</p>
+      <div class="social-links">
+        <a href="#" class="social-link">Daniel G.</a>
+        <a href="#" class="social-link">Verónica G.</a>
+      </div>
+    </div>
   </div>
-  <ul class="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
-    {
-      links.map((link) => (
-        <li>
-          <a
-            class="flex size-16 items-center justify-center rounded-full border-2 border-current p-4"
-            href={link.url}
-          >
-            <span class="sr-only">{link.description}</span>
-            <Icon class="size-full" name={link.icon} />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="footer-bottom">
+    <p>Global Azure Ecuador 2023</p>
+    <div class="footer-to-top">
+      <a href="#top">↑</a>
+    </div>
+  </div>
 </footer>
+
+<style>
+.footer-section {
+  background: #1a202c;
+  color: #cbd5e0;
+  padding: 2rem 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-block {
+  margin-bottom: 1rem;
+}
+
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+
+.footer-block h3 {
+  color: #3182ce;
+  margin-bottom: 0.5rem;
+}
+
+.footer-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-block ul li a {
+  color: #cbd5e0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-block ul li a:hover {
+  color: #63b3ed;
+}
+
+.footer-block p, .footer-bottom p {
+  color: #cbd5e0;
+  margin: 0.5rem 0;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+}
+
+.social-link {
+  display: inline-block;
+  margin-right: 1rem;
+  color: #cbd5e0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #63b3ed;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #2d3748;
+}
+
+.footer-to-top a {
+  color: #63b3ed;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.footer-to-top a:hover {
+  color: #90cdf4;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-block {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+</style>

@@ -19,7 +19,7 @@ import ContentSection from "~/components/content-section.astro";
       <span>Día 2 (Abril. 19)</span>
     </button>
   </div>  
-  <div id="day1-table" style="display: block;">
+  <div id="day1-table" class="table-container active">
     <table>    
       <tr>
         <th>Hora</th>
@@ -51,7 +51,7 @@ import ContentSection from "~/components/content-section.astro";
       </tr>      
     </table>
   </div>
-  <div id="day2-table" style="display: none;">
+  <div id="day2-table" class="table-container" >
     <table>    
       <tr>
         <th>Hora</th>
@@ -87,96 +87,111 @@ import ContentSection from "~/components/content-section.astro";
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('btn-day1').addEventListener('click', function() {
-      document.getElementById('day1-table').style.display = 'block';
-      document.getElementById('day2-table').style.display = 'none';
-    });
+  document.addEventListener('DOMContentLoaded', function () {
+    const btnDay1 = document.getElementById('btn-day1');
+    const btnDay2 = document.getElementById('btn-day2');
+    const day1Table = document.getElementById('day1-table');
+    const day2Table = document.getElementById('day2-table');
 
-    document.getElementById('btn-day2').addEventListener('click', function() {
-      document.getElementById('day1-table').style.display = 'none';
-      document.getElementById('day2-table').style.display = 'block';
-    });
+    function toggleTables(showDay1) {
+      if (showDay1) {
+        day1Table.classList.add('active');
+        day2Table.classList.remove('active');
+        btnDay1.classList.add('button-selected');
+        btnDay2.classList.remove('button-selected');
+      } else {
+        day2Table.classList.add('active');
+        day1Table.classList.remove('active');
+        btnDay2.classList.add('button-selected');
+        btnDay1.classList.remove('button-selected');
+      }
+    }
+
+    btnDay1.addEventListener('click', () => toggleTables(true));
+    btnDay2.addEventListener('click', () => toggleTables(false));
+
+    // Inicializar con la tabla del día 1 activa
+    toggleTables(true);
   });
-
-  document.addEventListener('DOMContentLoaded', function() {
-  const btnDay1 = document.getElementById('btn-day1');
-  const btnDay2 = document.getElementById('btn-day2');
-  const day1Table = document.getElementById('day1-table');
-  const day2Table = document.getElementById('day2-table');
-
-  btnDay1.addEventListener('click', function() {
-    day1Table.style.display = 'block';
-    day2Table.style.display = 'none';
-    btnDay1.classList.add('button-selected');
-    btnDay2.classList.remove('button-selected');
-  });
-
-  btnDay2.addEventListener('click', function() {
-    day1Table.style.display = 'none';
-    day2Table.style.display = 'block';
-    btnDay2.classList.add('button-selected');
-    btnDay1.classList.remove('button-selected');
-  });
-});
-
 </script>
 
 <style>
-
-.button-selected {
-  background-color: #673AB7; /* Un color violeta más claro */
-  color: white;
+.table-container {
+  max-height: 0; /* Asegurarse de que no ocupa espacio cuando está oculta */
+  visibility: hidden;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: max-height 0.5s, opacity 0.5s, visibility 0s 0.5s, transform 0.5s;
+  overflow: hidden;
 }
 
-/* Estilo General de la Tabla */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Sombra sutil para dar profundidad */
-  overflow: hidden; /* Para bordes redondeados en las esquinas */
-  border-radius: 10px; /* Esquinas redondeadas */
+.table-container.active {
+  max-height: 1000px; /* Aumentar para permitir suficiente espacio para la tabla */
+  visibility: visible;
+  opacity: 1;
+  transform: scaleY(1);
+  transition: max-height 0.5s, opacity 0.5s, visibility 0s, transform 0.5s;
 }
 
-/* Estilos para las Celdas de la Tabla */
-th, td {
-  padding: 12px 15px; /* Espaciado interno generoso */
-  text-align: left; /* Alineación del texto */
-  border-bottom: 1px solid #ffffff; /* Línea divisoria sutil */
+  .button-selected {
+    background-color: #2898ee; /* Azul claro y vibrante */
+    color: white;
+  }
+  
+  /* Estilo General de la Tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Sombra sutil para dar profundidad */
+    overflow: hidden; /* Para bordes redondeados en las esquinas */
+    border-radius: 10px; /* Esquinas redondeadas */    
+  }
+  
+  /* Estilos para las Celdas de la Tabla */
+  th, td {
+    padding: 12px 15px; /* Espaciado interno generoso */
+    text-align: left; /* Alineación del texto */
+    border-bottom: 1px solid #107acc; /* Línea divisoria en un tono de azul intermedio */
+  }
+  
+  /* Estilos para los Encabezados de la Tabla */
+  th {
+    background-color: #107acc; /* Color de fondo azul intermedio para los encabezados */
+    color: white; /* Texto en color blanco para alto contraste */
+    font-size: 16px; /* Tamaño de letra más grande para los encabezados */
+  }
+  
+  /* Estilo para las Filas al Pasar el Mouse */
+  tr:hover {
+    background-color: #e7f2fd; /* Color de fondo al pasar el mouse, un azul muy claro */
+  }
+  
+  /* Estilo para la Primera Columna (Hora) */
+  td:first-child {
+    color: #2898ee; /* Color azul claro y vibrante para las horas */
+    font-weight: bold; /* Texto en negrita para destacar */
+  }
+  
+  /* Estilo para las Filas Impares */
+  tr:nth-child(odd) {
+    background-color: #e7f2fd; /* Color de fondo para las filas impares, un azul muy claro */
+  }
+  
+  /* Estilo para las Filas Pares */
+  tr:nth-child(even) {
+    background-color: #f8faff; /* Color de fondo para las filas pares, aún más claro */
+  }
+  td:last-child{
+    color: #15297c; /* Un azul oscuro para destacar la última columna */
+  }
+  #day2-table {
+  margin-top: -20px; /* Ajusta este valor según sea necesario */
 }
-
-/* Estilos para los Encabezados de la Tabla */
-th {
-  background-color: #4A148C; /* Color de fondo para los encabezados */
-  color: white; /* Texto en color blanco para alto contraste */
-  font-size: 16px; /* Tamaño de letra más grande para los encabezados */
+#day1-table {
+  margin-top: -10px; /* Ajusta este valor según sea necesario */
 }
-
-/* Estilo para las Filas al Pasar el Mouse */
-tr:hover {
-  background-color: #f5f5f5; /* Color de fondo al pasar el mouse */
-}
-
-/* Estilo para la Primera Columna (Hora) */
-td:first-child {
-  color: #673AB7; /* Color distintivo para las horas */
-  font-weight: bold; /* Texto en negrita para destacar */
-}
-
-/* Estilo para las Filas Impares */
-tr:nth-child(odd) {
-  background-color: #f9f9f9; /* Color de fondo para las filas impares */
-}
-
-/* Estilo para las Filas Pares */
-tr:nth-child(even) {
-  background-color: #ffffff; /* Color de fondo para las filas pares */
-}
-td:last-child{
-  color: #050505;
-}
-
 </style>
-
+  
 
