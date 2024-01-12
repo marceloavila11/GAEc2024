@@ -1,148 +1,257 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+/>
+
 <footer class="footer-section">
   <div class="footer-content">
     <div class="footer-block">
-      <img src="/path-to-your-logo.png" alt="Logo" class="footer-logo">
-      <p>Global Azure 2023 es un evento global para aprender sobre Azure, y sobre las últimas tendencias tecnológicas.</p>
-      <p>En Ecuador, el evento está organizado por Microsoft UCuenca, junto al Virtual DEV Show. ¡La experiencia será realmente increíble!</p>
+      <img
+        src="src/assets/globalAzure2024.png"
+        alt="Logo"
+        class="footer-logo"
+      />
+      <p style="font-size: medium">
+        Global Azure 2024 es un evento global para aprender sobre Azure, y sobre
+        las últimas tendencias tecnológicas.
+      </p>
+      <p style="font-size: medium">
+        En Ecuador, el evento está organizado por Microsoft UCuenca, en conjunto
+        con Universidad de Cuenca. <br /> ¡La experiencia será realmente increíble!
+      </p>
     </div>
     <div class="footer-block">
       <h3>MICROSOFT UCENCA</h3>
       <ul>
-        <li><a href="#">Sitio web</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li>
+          <a href="https://microsoftucuenca.org/" target="_blank"
+            ><i class="fas fa-globe"></i> Sitio web</a
+          >
+        </li>
+        <li>
+          <a href="https://www.facebook.com/MicrosoftUCuenca" target="_blank"
+            ><i class="fab fa-facebook"></i> Facebook</a
+          >
+        </li>
+        <li>
+          <a href="https://www.instagram.com/microsoftucuenca/" target="_blank"
+            ><i class="fab fa-instagram"></i> Instagram</a
+          >
+        </li>
+        <li>
+          <a href="https://twitter.com/MicrosoftUC" target="_blank"
+            ><i class="fab fa-twitter"></i> Twitter</a
+          >
+        </li>
       </ul>
     </div>
+
     <div class="footer-block">
-      <h3>VIRTUAL DEV SHOW</h3>
+      <h3>UNIVERSIDAD DE CUENCA</h3>
       <ul>
-        <li><a href="#">Sitio web</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Meetup</a></li>
+        <li>
+          <a href="https://www.ucuenca.edu.ec/" target="_blank"
+            ><i class="fas fa-globe"></i> Sitio web</a
+          >
+        </li>
+        <li>
+          <a href="https://www.facebook.com/ucuenca" target="_blank"
+            ><i class="fab fa-facebook"></i> Facebook</a
+          >
+        </li>
+        <li>
+          <a href="https://www.instagram.com/udecuenca/" target="_blank"
+            ><i class="fab fa-instagram"></i> Instagram</a
+          >
+        </li>
+        <li>
+          <a href="https://twitter.com/udecuenca" target="_blank"
+            ><i class="fab fa-twitter"></i> Twitter</a
+          >
+        </li>
       </ul>
     </div>
+
     <div class="footer-block">
       <h3>PORTAL WEB</h3>
-      <p>Construido por:</p>
-      <p>Virtual DEV Show (ATG).</p>
-      <p>Microsoft Most Valuable Professionals.</p>
-      <p>Email: info@virtualdevshow.com</p>
+      <p style="font-size: medium">Construido por:</p>
+      <p style="font-size: medium">Microsoft UCuenca Community</p>
+
+      <p style="font-size: medium">
+        Email: <a href="mailto:comunidad.microsoft@ucuenca.edu.ec"
+          >comunidad.microsoft@ucuenca.edu.ec</a>
+      </p>
+
       <div class="social-links">
-        <a href="#" class="social-link">Daniel G.</a>
-        <a href="#" class="social-link">Verónica G.</a>
+        <a
+          href="https://www.linkedin.com/in/marcelo11avila/"
+          class="social-link"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin"></i> Marcelo Avila.
+        </a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Global Azure Ecuador 2023</p>
+    <div style="width: 100%;">Global Azure Ecuador 2024</div>
     <div class="footer-to-top">
-      <a href="#top">↑</a>
+      <a href="#top"><span>↑</span></a>
     </div>
   </div>
 </footer>
 
+<script>
+  // Función para mostrar el botón al desplazarse
+  function scrollFunction() {
+    const button = document.querySelector(".footer-to-top");
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      button.style.display = "flex";
+    } else {
+      button.style.display = "none";
+    }
+  }
+
+  // Evento de desplazamiento
+  window.onscroll = function () {
+    scrollFunction();
+  };
+</script>
+
 <style>
-.footer-section {
-  background: #1a202c;
-  color: #cbd5e0;
-  padding: 2rem 0;
-  font-family: 'Inter', sans-serif;
-}
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-.footer-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+  .footer-section {
+    background: #0a192f; /* Un azul oscuro similar al de la imagen */
+    color: #8892b0; /* Un gris claro para el texto */
+    padding: 3rem 0; /* Ajusta el padding según sea necesario */
+    font-family: "Roboto", sans-serif;
+  }
 
-.footer-block {
-  margin-bottom: 1rem;
-}
-
-.footer-logo {
-  max-width: 150px;
-  margin-bottom: 1rem;
-}
-
-.footer-block h3 {
-  color: #3182ce;
-  margin-bottom: 0.5rem;
-}
-
-.footer-block ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-block ul li a {
-  color: #cbd5e0;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-block ul li a:hover {
-  color: #63b3ed;
-}
-
-.footer-block p, .footer-bottom p {
-  color: #cbd5e0;
-  margin: 0.5rem 0;
-}
-
-.social-links {
-  display: flex;
-  align-items: center;
-}
-
-.social-link {
-  display: inline-block;
-  margin-right: 1rem;
-  color: #cbd5e0;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.social-link:hover {
-  color: #63b3ed;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 1rem;
-  border-top: 1px solid #2d3748;
-}
-
-.footer-to-top a {
-  color: #63b3ed;
-  text-decoration: none;
-  font-size: 1.5rem;
-  transition: color 0.3s;
-}
-
-.footer-to-top a:hover {
-  color: #90cdf4;
-}
-
-@media (max-width: 768px) {
   .footer-content {
-    flex-direction: column;
-    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    max-height: 400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    margin-top: -90px;
   }
 
   .footer-block {
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
+    margin-bottom: 2rem;
   }
-}
+
+  .footer-block h3 {
+    color: #ccd6f6; /* Un color más claro para los títulos */
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #233554; /* Una línea para separar los títulos */
+  }
+
+  .footer-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-block ul li a {
+    display: flex;
+    align-items: center;
+    color: #8892b0;
+    text-decoration: none;
+    font-size: medium;
+  }
+
+  .footer-block ul li a i {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+  }
+
+  .footer-block ul li a:hover {
+    color: #64ffda; /* Cambia el color al pasar el ratón por encima */
+  }
+
+  .footer-logo {
+    max-width: 100px;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .social-links a {
+    margin-right: 1rem;
+    font-size: medium;
+  }
+
+  .social-link:hover {
+    color: #64ffda; /* Asegúrate de que los iconos de las redes sociales también cambien de color */
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -30px;
+    margin-bottom: -35px;
+    text-align: center; /* Asegura que el texto esté centrado */
+    font-size: small;
+  }
+  
+
+  .footer-to-top {
+    position: fixed; /* Posición fija en la pantalla */
+    right: 20px; /* Ajusta la distancia desde el lado derecho */
+    bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: #64a5ff; /* Color de fondo */
+    color: #0a192f; /* Color del texto */
+    border-radius: 50%; /* Bordes redondeados */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Altura del botón */
+    text-align: center;
+    line-height: 50px; /* Alineación vertical del texto */
+    cursor: pointer; /* Cursor tipo 'mano' al pasar el mouse */
+    transition: background-color 0.3s ease-in-out;
+    display: none;
+  }
+
+  .footer-to-top a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: inherit; /* Hereda el color del padre */
+    transition: color 0.3s ease-in-out;
+  }
+  .footer-to-top a span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-to-top a:hover {
+    color: #8892b0;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-block {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+  }
 </style>

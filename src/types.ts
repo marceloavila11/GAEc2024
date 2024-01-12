@@ -1,6 +1,6 @@
 export interface CompatibilityItem {
-  icon: string;
   title: string;
+  icon: string; // Puede ser una ruta a una imagen o un nombre de ícono
   url: string;
 }
 

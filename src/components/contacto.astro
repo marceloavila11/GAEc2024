@@ -6,49 +6,36 @@ import ContentSection from "~/components/content-section.astro";
 
 <ContentSection title="Nuestra ubicación" id="contacto">
   <div class="contact-section" id="sec">
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">×</span>
+        <h2 class="modal-title">¡GRACIAS POR TU MENSAJE!</h2>
+        <p>Mensaje enviado satisfactoriamente, nos comunicaremos contigo de inmediato.</p>
+      </div>
+    </div>
+
+
     <div class="contact-form">
       <h2>Contáctanos</h2>
       <p>¡Comunícate con nosotros en cualquier momento!</p>
-      <form
-        action="mailto:tuemail@example.com"
-        method="POST"
-        class="form-style"
-      >
+      <form id="contactForm" action="mailto:comunidad.microsoftucuenca@ucuenca.edu.ec" method="POST" class="form-style">
         <div class="form-group">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="Nombre"
-          />
+          <input type="text" id="name" name="name" required placeholder="Nombre" />
         </div>
         <div class="form-group">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="Correo Electrónico"
-          />
+          <input type="email" id="email" name="email" required placeholder="Correo Electrónico" />
         </div>
         <div class="form-group">
-          <textarea id="message" name="message" required placeholder="Mensaje"
-          ></textarea>
+          <textarea id="message" name="message" required placeholder="Mensaje" ></textarea>
         </div>
         <button type="submit" class="submit-btn">Enviar Mensaje</button>
       </form>
     </div>
     <div class="contact-info">
       <div class="location-info">
-        <h3>
-          ¡Cuenca, la ciudad más hermosa de los Andes Ecuatorianos nos espera!
-        </h3>
+        <h3>¡Cuenca, la ciudad más hermosa de los Andes Ecuatorianos nos espera!</h3>
         <p>
-          <br />Cuenca ha sido seleccionada para celebrar el Global Azure 2024
-          en Ecuador este año. Viviremos esta experiencia de clase mundial
-          juntos en el Campus Tecnológico de Balzay de la Universidad de Cuenca,
-          con sus modernos laboratorios y auditorios.
+          <br />Cuenca ha sido seleccionada para celebrar el Global Azure 2024 en Ecuador este año. Viviremos esta experiencia de clase mundial juntos en el Campus Tecnológico de Balzay de la Universidad de Cuenca, con sus modernos laboratorios y auditorios.
         </p>
       </div>
       <div class="contact-map">
@@ -56,7 +43,7 @@ import ContentSection from "~/components/content-section.astro";
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1992.369882566194!2d-79.03828651163593!3d-2.8911940204737006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd22b0d598af21%3A0x60dda6be6ef264b6!2sCampus%20Balzay%20Universidad%20de%20Cuenca%2C%20Cuenca!5e0!3m2!1sen!2sec!4v1704919630632!5m2!1sen!2sec"
           width="550"
-          height=250"
+          height='250"'
           style="border:0;"
           allowfullscreen=""
           loading="lazy"
@@ -65,6 +52,56 @@ import ContentSection from "~/components/content-section.astro";
     </div>
   </div>
 </ContentSection>
+
+<script>
+  // Muestra la ventana modal
+  function showModal() {
+    var modal = document.getElementById("modal");
+    modal.classList.add("show-modal");
+    modal.classList.remove("hide-modal");
+  }
+
+  // Cierra la ventana modal
+  function hideModal() {
+    var modal = document.getElementById("modal");
+    modal.classList.add("hide-modal");
+    setTimeout(() => {
+      modal.classList.remove("show-modal");
+    }, 400); // Espera a que termine la transición de desvanecimiento
+  }
+
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+
+    // Construir el contenido del correo
+    var mailtoLink = 'mailto:comunidad.microsoftucuenca@ucuenca.edu.ec';
+    mailtoLink += '?subject=' + encodeURIComponent('Global Azure 2024 - Mensaje de ' + name);
+    mailtoLink += '&body=' + encodeURIComponent('Hola, me llamo ' + name + ', mi correo electrónico es: ' + email + '\nMi mensaje es el siguiente:\n' + message);
+
+    // Abrir el enlace del correo
+    open(mailtoLink);
+
+    // Mostrar modal
+    showModal();
+});
+
+
+  var closeButton = document.getElementsByClassName("close-button")[0];
+  closeButton.onclick = function() {
+    hideModal();
+  };
+
+  window.onclick = function(event) {
+    var modal = document.getElementById("modal");
+    if (event.target == modal) {
+      hideModal();
+    }
+  };
+</script>
 
 <style>
   .contact-section {
@@ -75,7 +112,6 @@ import ContentSection from "~/components/content-section.astro";
     font-family: "Inter", sans-serif;
     margin-left: 10%;
     margin-right: 10%;
-
   }
 
   .contact-form,
@@ -130,9 +166,12 @@ import ContentSection from "~/components/content-section.astro";
     padding: 15px; /* Padding aumentado para mayor espacio */
     border: 2px solid #ccd6f6; /* Un azul claro para el borde */
     border-radius: 8px; /* Bordes redondeados más pronunciados */
+    overflow: scroll;
     transition:
       border-color 0.3s,
       box-shadow 0.3s;
+      resize: none
+      
   }
 
   .form-group input::placeholder,
@@ -181,7 +220,85 @@ import ContentSection from "~/components/content-section.astro";
       height: 200px;
     }
   }
-  #sec{
+  #sec {
     margin-top: -30px; /* Ajusta este valor según sea necesario */
   }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccd6f6;
+    border-radius: 8px;
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s;
+    color: black; /* Esto cambia el color del texto a negro */
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #a0aec0;
+  }
+
+/* Estilos mejorados para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo negro con opacidad */
+    transition: opacity 0.4s ease;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Ajustar según necesidad */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transform: scale(0.9); /* Inicia un poco más pequeño */
+    transition: transform 0.3s ease-out;
+}
+
+/* Animación de entrada */
+.show-modal {
+    display: block; /* Muestra el modal */
+    opacity: 1;
+    .modal-content {
+        transform: scale(1); /* Escala al tamaño normal */
+    }
+}
+
+/* Estilos para el botón de cierre */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 30px; /* Más grande para facilidad de uso */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-button:hover {
+    color: #333; /* Cambia de color al pasar el mouse */
+}
+
+/* Transición de desvanecimiento para ocultar el modal */
+.hide-modal {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    .modal-content {
+        transform: scale(0.9); /* Disminuye un poco al cerrar */
+    }
+}
+
 </style>

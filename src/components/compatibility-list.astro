@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import type { CompatibilityItem } from "~/types";
 
 export interface Props {
@@ -23,12 +22,25 @@ const { items, title, url } = Astro.props;
         items.map((item) => (
           <li>
             <a class="flex flex-col items-center gap-1" href={item.url}>
-              <Icon class="size-12" name={item.icon} />
+              <img src={item.icon} alt={item.title} class="icon-img" />{" "}
+              {/* Usa una etiqueta img */}
               <span>{item.title}</span>
             </a>
           </li>
         ))
       }
     </ul>
-  </div>  
+  </div>
 </div>
+
+<style>
+.icon-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  object-position: center;
+  margin: 5px; /* Ajusta según tus necesidades */  
+  border-radius: 10px; /* Para bordes redondeados, opcional */
+}
+
+</style>
