@@ -10,32 +10,57 @@ import ContentSection from "~/components/content-section.astro";
       <div class="modal-content">
         <span class="close-button">×</span>
         <h2 class="modal-title">¡GRACIAS POR TU MENSAJE!</h2>
-        <p>Mensaje enviado satisfactoriamente, nos comunicaremos contigo de inmediato.</p>
+        <p>
+          Mensaje enviado satisfactoriamente, nos comunicaremos contigo de
+          inmediato.
+        </p>
       </div>
     </div>
-
 
     <div class="contact-form">
       <h2>Contáctanos</h2>
       <p>¡Comunícate con nosotros en cualquier momento!</p>
-      <form id="contactForm" action="mailto:comunidad.microsoftucuenca@ucuenca.edu.ec" method="POST" class="form-style">
+      <form
+        id="contactForm"
+        action="mailto:comunidad.microsoftucuenca@ucuenca.edu.ec"
+        method="POST"
+        class="form-style"
+      >
         <div class="form-group">
-          <input type="text" id="name" name="name" required placeholder="Nombre" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Nombre"
+          />
         </div>
         <div class="form-group">
-          <input type="email" id="email" name="email" required placeholder="Correo Electrónico" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Correo Electrónico"
+          />
         </div>
         <div class="form-group">
-          <textarea id="message" name="message" required placeholder="Mensaje" ></textarea>
+          <textarea id="message" name="message" required placeholder="Mensaje"
+          ></textarea>
         </div>
         <button type="submit" class="submit-btn">Enviar Mensaje</button>
       </form>
     </div>
     <div class="contact-info">
       <div class="location-info">
-        <h3>¡Cuenca, la ciudad más hermosa de los Andes Ecuatorianos nos espera!</h3>
+        <h3>
+          ¡Cuenca, la ciudad más hermosa de los Andes Ecuatorianos nos espera!
+        </h3>
         <p>
-          <br />Cuenca ha sido seleccionada para celebrar el Global Azure 2024 en Ecuador este año. Viviremos esta experiencia de clase mundial juntos en el Campus Tecnológico de Balzay de la Universidad de Cuenca, con sus modernos laboratorios y auditorios.
+          <br />Cuenca ha sido seleccionada para celebrar el Global Azure 2024
+          en Ecuador este año. Viviremos esta experiencia de clase mundial
+          juntos en el Campus Tecnológico de Balzay de la Universidad de Cuenca,
+          con sus modernos laboratorios y auditorios.
         </p>
       </div>
       <div class="contact-map">
@@ -70,32 +95,44 @@ import ContentSection from "~/components/content-section.astro";
     }, 400); // Espera a que termine la transición de desvanecimiento
   }
 
-  document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var message = document.getElementById('message').value;
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
 
-    // Construir el contenido del correo
-    var mailtoLink = 'mailto:comunidad.microsoftucuenca@ucuenca.edu.ec';
-    mailtoLink += '?subject=' + encodeURIComponent('Global Azure 2024 - Mensaje de ' + name);
-    mailtoLink += '&body=' + encodeURIComponent('Hola, me llamo ' + name + ', mi correo electrónico es: ' + email + '\nMi mensaje es el siguiente:\n' + message);
+      // Construir el contenido del correo
+      var mailtoLink = "mailto:comunidad.microsoftucuenca@ucuenca.edu.ec";
+      mailtoLink +=
+        "?subject=" +
+        encodeURIComponent("Global Azure 2024 - Mensaje de " + name);
+      mailtoLink +=
+        "&body=" +
+        encodeURIComponent(
+          "Hola, me llamo " +
+            name +
+            ", mi correo electrónico es: " +
+            email +
+            "\nMi mensaje es el siguiente:\n" +
+            message
+        );
 
-    // Abrir el enlace del correo
-    open(mailtoLink);
+      // Abrir el enlace del correo
+      open(mailtoLink);
 
-    // Mostrar modal
-    showModal();
-});
-
+      // Mostrar modal
+      showModal();
+    });
 
   var closeButton = document.getElementsByClassName("close-button")[0];
-  closeButton.onclick = function() {
+  closeButton.onclick = function () {
     hideModal();
   };
 
-  window.onclick = function(event) {
+  window.onclick = function (event) {
     var modal = document.getElementById("modal");
     if (event.target == modal) {
       hideModal();
@@ -104,6 +141,27 @@ import ContentSection from "~/components/content-section.astro";
 </script>
 
 <style>
+  @media (max-width: 768px) {
+    .contact-section {
+      flex-direction: column;
+    }
+
+    .contact-form,
+    .contact-info {
+      width: 100%; /* Asegúrate de que tomen todo el ancho disponible */
+    }
+
+    .contact-map iframe {
+      width: 100%; /* Hacer que el iframe tome todo el ancho disponible */
+      height: auto; /* Ajustar la altura automáticamente */
+    }
+
+    .modal-content {
+      width: 90%; /* Hacer que el modal sea un poco más pequeño para dispositivos móviles */
+      margin: 20px auto; /* Agregar un poco de margen alrededor */
+    }
+  }
+
   .contact-section {
     display: flex;
     gap: 2rem;
@@ -170,8 +228,7 @@ import ContentSection from "~/components/content-section.astro";
     transition:
       border-color 0.3s,
       box-shadow 0.3s;
-      resize: none
-      
+    resize: none;
   }
 
   .form-group input::placeholder,
@@ -187,8 +244,8 @@ import ContentSection from "~/components/content-section.astro";
   }
 
   .submit-btn {
-    width: 100%;
-    padding: 15px; /* Padding aumentado para un botón más grande */
+    padding: 10px 20px; 
+    width: 100%;    
     color: #fff;
     background-color: #3182ce; /* Color de fondo más intenso para el botón */
     border: none;
@@ -216,8 +273,19 @@ import ContentSection from "~/components/content-section.astro";
       flex-basis: 100%;
     }
 
+    .contact-map {
+      position: relative;
+      overflow: hidden;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
     .contact-map iframe {
-      height: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
   }
   #sec {
@@ -229,6 +297,7 @@ import ContentSection from "~/components/content-section.astro";
     padding: 15px;
     border: 2px solid #ccd6f6;
     border-radius: 8px;
+    padding: 1em;
     transition:
       border-color 0.3s,
       box-shadow 0.3s;
@@ -240,8 +309,8 @@ import ContentSection from "~/components/content-section.astro";
     color: #a0aec0;
   }
 
-/* Estilos mejorados para el modal */
-.modal {
+  /* Estilos mejorados para el modal */
+  .modal {
     display: none; /* Oculto por defecto */
     position: fixed;
     z-index: 1;
@@ -252,9 +321,9 @@ import ContentSection from "~/components/content-section.astro";
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4); /* Fondo negro con opacidad */
     transition: opacity 0.4s ease;
-}
+  }
 
-.modal-content {
+  .modal-content {
     position: relative;
     background-color: #fff;
     margin: 10% auto;
@@ -265,19 +334,19 @@ import ContentSection from "~/components/content-section.astro";
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
     transform: scale(0.9); /* Inicia un poco más pequeño */
     transition: transform 0.3s ease-out;
-}
+  }
 
-/* Animación de entrada */
-.show-modal {
+  /* Animación de entrada */
+  .show-modal {
     display: block; /* Muestra el modal */
     opacity: 1;
     .modal-content {
-        transform: scale(1); /* Escala al tamaño normal */
+      transform: scale(1); /* Escala al tamaño normal */
     }
-}
+  }
 
-/* Estilos para el botón de cierre */
-.close-button {
+  /* Estilos para el botón de cierre */
+  .close-button {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -286,19 +355,18 @@ import ContentSection from "~/components/content-section.astro";
     font-weight: bold;
     cursor: pointer;
     transition: color 0.2s;
-}
+  }
 
-.close-button:hover {
+  .close-button:hover {
     color: #333; /* Cambia de color al pasar el mouse */
-}
+  }
 
-/* Transición de desvanecimiento para ocultar el modal */
-.hide-modal {
+  /* Transición de desvanecimiento para ocultar el modal */
+  .hide-modal {
     opacity: 0;
     transition: opacity 0.4s ease;
     .modal-content {
-        transform: scale(0.9); /* Disminuye un poco al cerrar */
+      transform: scale(0.9); /* Disminuye un poco al cerrar */
     }
-}
-
+  }
 </style>

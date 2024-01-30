@@ -14,13 +14,12 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     <h2
       class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-    <Image
-    class="size-30 text-white md:size-50"        
-    src={newIcon}
-    alt="Your new icon description"
-  />
- 
-      
+      <Image
+        class="image-responsive"
+        src={newIcon}
+        alt="Your new icon description"
+      />
+
       <div
         class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
       >
@@ -54,6 +53,32 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 </noscript>
 
 <style>
+  /* Aplica estilos a la imagen para asegurarte de que sea responsive */
+  .image-responsive {
+    width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+    object-fit: contain; /* Asegura que toda la imagen se ajuste dentro de su contenedor sin cortarse */
+  }
+
+  /* Ajustes de responsive para la imagen y el texto */
+  @media (max-width: 640px) {
+    .size-30 {
+      width: 100%; /* Ajusta la imagen para que use todo el ancho disponible en pantallas pequeñas */
+      margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas si es necesario */
+    }
+
+    .text-8xl {
+      font-size: 4rem; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+    }
+  }
+
+  /* Estilos adicionales para controlar la animación y la visualización en no-js */
+  @media (prefers-reduced-motion: reduce) {
+    #globalazure {
+      animation: none; /* Detiene la animación si el usuario prefiere reducir el movimiento */
+    }
+  }
+
   @keyframes float {
     0% {
       transform: translate3d(0, 0, 0);
@@ -83,6 +108,5 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
   }
   .size-30 {
     margin-left: 60px; /* Ajusta este valor según sea necesario */
-}
-
+  }
 </style>
